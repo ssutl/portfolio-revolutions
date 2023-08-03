@@ -4,6 +4,8 @@
   overflow-y: scroll;
   height: 100vh;
   background-color: $bg;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 
   .imageBanner {
     height: 40dvh;
@@ -21,7 +23,7 @@
   .BlogSection {
     width: 90%;
     margin: 0px auto;
-    padding: 100px 0px;
+    padding: 100px 0px 0px 0px;
 
     @include breakpoint-mixin("laptop-small") {
       width: 60%;
@@ -32,7 +34,7 @@
     h3,
     p,
     .tags {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .tags {
