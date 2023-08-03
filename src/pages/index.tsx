@@ -9,6 +9,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import NotionService from "../../services/notion-service";
 import { BlogPost } from "../../@types/schema";
 import axios from "axios";
+import Head from "next/head";
 
 export interface githubProjectInterface {
   name: string;
@@ -50,13 +51,38 @@ const App = ({
   githubProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className={styles.main}>
-      <ProfileSection />
-      <AboutMeSection />
-      <BlogSection notionPosts={notionPosts} />
-      <ProjectSection githubProjects={githubProjects} />
-      <Sidebanner />
-    </div>
+    <>
+      <Head>
+        <title>SSUTL</title>
+        <meta
+          name={"description"}
+          title={"description"}
+          content="Somewhere in Manny with my headphones on. UOM Engineer, tap in for gems and vibes, sumn humble, sumn subtle. Ever so, ever so."
+        />
+        <meta
+          name={"og:title"}
+          title={"og:title"}
+          content="A SSUTL PORTFOLIO"
+        />
+        <meta
+          name={"og:description"}
+          title={"og:description"}
+          content="Somewhere in Manny with my headphones on. UOM Engineer, tap in for gems and vibes, sumn humble, sumn subtle. Ever so, ever so."
+        />
+        <meta
+          name={"og:image"}
+          title={"og:image"}
+          content="../../public/icon.jpg"
+        />
+      </Head>
+      <div className={styles.main}>
+        <ProfileSection />
+        <AboutMeSection />
+        <BlogSection notionPosts={notionPosts} />
+        <ProjectSection githubProjects={githubProjects} />
+        <Sidebanner />
+      </div>
+    </>
   );
 };
 
