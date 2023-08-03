@@ -4,6 +4,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import NotionService from "../../../services/notion-service";
 import { BlogPost } from "../../../@types/schema";
 import styles from "../../styles/BlogLandingPage.module.scss";
+import Sidebanner from "@/Components/SideBanner";
 
 export interface githubProjectInterface {
   name: string;
@@ -33,6 +34,7 @@ const BlogLandingPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className={styles.page}>
+      <Sidebanner />
       <BlogSection notionPosts={notionPosts} />
     </div>
   );
