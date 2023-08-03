@@ -1,0 +1,104 @@
+@import "./Breakpoints.scss";
+
+body {
+  margin: 0;
+  padding: 0px;
+  position: relative; // set the position to relative to allow for scrolling
+  font-family: "primaryFont";
+  color: white;
+  background-image: url("../../public/Resources/towel.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20% 60%;
+  background-attachment: fixed;
+
+  @include breakpoint-mixin("laptop-small") {
+    background-repeat: repeat;
+    background-size: 350px;
+  }
+
+  p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+
+    @include breakpoint-mixin("laptop-small") {
+      font-size: 22px;
+    }
+  }
+
+  h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 48px;
+
+    @include breakpoint-mixin("phone") {
+      font-size: 55px;
+    }
+
+    @include breakpoint-mixin("phone-wide") {
+      font-size: 60px;
+    }
+
+    @include breakpoint-mixin("tablet") {
+      font-size: 70px;
+    }
+
+    @include breakpoint-mixin("laptop-wide") {
+      font-size: 80px;
+    }
+  }
+
+  h2 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 38px;
+
+    @include breakpoint-mixin("phone") {
+      font-size: 43px;
+    }
+
+    @include breakpoint-mixin("phone-wide") {
+      font-size: 48px;
+    }
+
+    @include breakpoint-mixin("tablet") {
+      font-size: 50px;
+    }
+
+    @include breakpoint-mixin("laptop-wide") {
+      font-size: 60px;
+    }
+  }
+
+  h3 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+
+    @include breakpoint-mixin("phone") {
+      font-size: 33px;
+    }
+
+    @include breakpoint-mixin("phone-wide") {
+      font-size: 35px;
+    }
+
+    @include breakpoint-mixin("tablet") {
+      font-size: 40px;
+    }
+
+    @include breakpoint-mixin("laptop-wide") {
+      font-size: 45px;
+    }
+  }
+}
+
+@font-face {
+  font-family: "PrimaryFont";
+  src: url("../../public/Resources/Inconsolata.otf") format("opentype");
+}
+@font-face {
+  font-family: "SecondaryFont";
+  src: url("../../public/Resources/SpaceMono-Regular.ttf") format("truetype");
+}

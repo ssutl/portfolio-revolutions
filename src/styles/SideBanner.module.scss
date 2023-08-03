@@ -1,0 +1,67 @@
+@import "./Breakpoints.scss";
+
+.sideBannerSection {
+  position: fixed;
+  right: 3px;
+  height: 100vh;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  top: 0px;
+  mix-blend-mode: difference;
+  z-index: 90;
+
+  @include breakpoint-mixin("laptop-small") {
+    width: 4%;
+  }
+
+  #sideBannerSection__name {
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    writing-mode: vertical-rl;
+    justify-content: center;
+    color: white;
+    font-family: "secondaryFont";
+    margin-top: 20px;
+    font-size: 17px;
+    cursor: pointer;
+
+    @include breakpoint-mixin("tablet") {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+
+    @include breakpoint-mixin("laptop") {
+      font-size: 22px;
+    }
+  }
+
+  .sideBannerSection__socials {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+
+    #arrowUpDown {
+      font-size: 28px;
+    }
+
+    .socialIcon {
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    @include breakpoint-mixin("tablet") {
+      font-size: 28px;
+    }
+
+    @include breakpoint-mixin("laptop") {
+      font-size: 22px;
+    }
+  }
+}

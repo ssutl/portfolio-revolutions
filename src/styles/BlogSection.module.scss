@@ -1,0 +1,44 @@
+@import "./Breakpoints.scss";
+
+.BlogSection {
+  padding: 100px 1% 0px 1%;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // background-color: orange;
+
+  .header {
+    // background-color: orange;
+    // mix-blend-mode: difference;
+    background-color: $bg;
+  }
+
+  .postItem {
+    width: 100%;
+    cursor: pointer;
+    padding: 20px 0px;
+
+    @include breakpoint-mixin("laptop-small") {
+      padding: 10px 0px;
+    }
+
+    h1 {
+      mix-blend-mode: difference;
+    }
+
+    p {
+      mix-blend-mode: difference;
+    }
+
+    &:hover {
+      h1 {
+        border-bottom: 5px solid white;
+      }
+      p {
+        mix-blend-mode: normal;
+        background-color: #cf9fff;
+      }
+    }
+  }
+}

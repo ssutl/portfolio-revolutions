@@ -1,0 +1,65 @@
+@import "./Breakpoints.scss";
+
+.blogPage {
+  overflow-y: scroll;
+  height: 100vh;
+  background-color: $bg;
+
+  .imageBanner {
+    height: 40dvh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .BlogSection {
+    width: 90%;
+    margin: 0px auto;
+    padding: 100px 0px;
+
+    @include breakpoint-mixin("laptop-small") {
+      width: 60%;
+    }
+
+    //Title, description, tags
+    h1,
+    h3,
+    p,
+    .tags {
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      .tag {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 2px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.blogPage::-webkit-scrollbar {
+  height: 100%;
+  background-color: rgb(45, 41, 41);
+  width: 10px;
+}
+
+.blogPage::-webkit-scrollbar-thumb {
+  background-color: rgba(70, 68, 68, 0.428);
+  border: 1px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
+  height: 40px;
+}
