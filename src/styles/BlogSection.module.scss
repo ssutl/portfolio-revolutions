@@ -18,6 +18,7 @@
     width: 100%;
     cursor: pointer;
     padding: 20px 0px;
+    // z-index: 100;
 
     @include breakpoint-mixin("laptop-small") {
       padding: 10px 0px;
@@ -25,10 +26,12 @@
 
     h1 {
       mix-blend-mode: difference;
+      z-index: 100;
     }
 
     p {
       mix-blend-mode: difference;
+      z-index: 100;
     }
 
     &:hover {
