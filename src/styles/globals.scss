@@ -30,19 +30,7 @@ body {
   h1 {
     margin: 0px;
     padding: 0px;
-    font-size: 48px;
-
-    @include breakpoint-mixin("phone") {
-      font-size: 55px;
-    }
-
-    @include breakpoint-mixin("phone-wide") {
-      font-size: 60px;
-    }
-
-    @include breakpoint-mixin("tablet") {
-      font-size: 70px;
-    }
+    font-size: 65px;
 
     @include breakpoint-mixin("laptop-wide") {
       font-size: 80px;
@@ -52,19 +40,7 @@ body {
   h2 {
     margin: 0px;
     padding: 0px;
-    font-size: 38px;
-
-    @include breakpoint-mixin("phone") {
-      font-size: 43px;
-    }
-
-    @include breakpoint-mixin("phone-wide") {
-      font-size: 48px;
-    }
-
-    @include breakpoint-mixin("tablet") {
-      font-size: 50px;
-    }
+    font-size: 40px;
 
     @include breakpoint-mixin("laptop-wide") {
       font-size: 60px;
@@ -75,18 +51,6 @@ body {
     margin: 0px;
     padding: 0px;
     font-size: 30px;
-
-    @include breakpoint-mixin("phone") {
-      font-size: 33px;
-    }
-
-    @include breakpoint-mixin("phone-wide") {
-      font-size: 35px;
-    }
-
-    @include breakpoint-mixin("tablet") {
-      font-size: 40px;
-    }
 
     @include breakpoint-mixin("laptop-wide") {
       font-size: 45px;
