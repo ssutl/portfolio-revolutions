@@ -10,6 +10,7 @@
   position: relative;
   mix-blend-mode: difference;
   z-index: 100;
+  background-color: red;
 
   #profileSection__name {
     font-family: "primaryFont";
@@ -21,6 +22,7 @@
   }
 
   #profileSection__desc {
+    box-sizing: border-box;
     margin-left: 1%;
     width: 80%;
     line-height: 110%;
