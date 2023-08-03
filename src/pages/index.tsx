@@ -53,7 +53,7 @@ const App = ({
   return (
     <>
       <Head>
-        <title>SSUTL</title>
+        <title>ss.utl</title>
         <meta
           name={"description"}
           title={"description"}
