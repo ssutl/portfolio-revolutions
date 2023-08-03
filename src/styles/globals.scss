@@ -31,19 +31,23 @@ body {
     @include breakpoint-mixin("laptop-small") {
       font-size: 22px;
     }
+
+    @include breakpoint-mixin("desktop") {
+      font-size: 25px;
+    }
   }
 
   h1 {
     margin: 0px;
     padding: 0px;
-    font-size: 65px;
+    font-size: 70px;
 
-    @include breakpoint-mixin("laptop-wide") {
+    @include breakpoint-mixin("laptop-small") {
       font-size: 80px;
     }
 
     @include breakpoint-mixin("desktop") {
-      font-size: 90px;
+      font-size: 100px;
     }
   }
 
@@ -52,7 +56,7 @@ body {
     padding: 0px;
     font-size: 40px;
 
-    @include breakpoint-mixin("laptop-wide") {
+    @include breakpoint-mixin("laptop-small") {
       font-size: 60px;
     }
   }

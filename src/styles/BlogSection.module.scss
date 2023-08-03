@@ -30,9 +30,23 @@
       &:hover {
         h1 {
           border-bottom: 5px solid white;
+          transition: all 0.3s ease-in-out;
+          font-size: 90px;
         }
         p {
-          background-color: red;
+          transition: all 0.3s ease-in-out;
+          font-size: 25px;
+        }
+      }
+    }
+
+    @include breakpoint-mixin("desktop") {
+      &:hover {
+        h1 {
+          font-size: 110px;
+        }
+        p {
+          font-size: 28px;
         }
       }
     }
