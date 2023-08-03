@@ -9,25 +9,28 @@
   padding: 0px;
   position: relative;
   mix-blend-mode: difference;
-  z-index: 100;
-  background-color: red;
+  background-color: transparent;
 
   #profileSection__name {
     font-family: "primaryFont";
     position: absolute;
     margin-top: 0px;
     top: 10px;
-    left: 1%;
     cursor: pointer;
+    left: 2%;
+
+    @include breakpoint-mixin("laptop-small") {
+      left: 1%;
+    }
   }
 
   #profileSection__desc {
-    box-sizing: border-box;
-    margin-left: 1%;
+    margin-left: 2%;
     width: 80%;
     line-height: 110%;
 
     @include breakpoint-mixin("laptop-small") {
+      margin-left: 1%;
       width: 50%;
     }
 
