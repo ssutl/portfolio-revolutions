@@ -14,8 +14,6 @@
   // background-color: orange;
 
   .header {
-    // background-color: orange;
-    // mix-blend-mode: difference;
     background-color: $bg;
   }
 
@@ -23,24 +21,19 @@
     width: 100%;
     cursor: pointer;
     padding: 20px 0px;
+    mix-blend-mode: difference;
+    z-index: 100;
 
     @include breakpoint-mixin("laptop-small") {
       padding: 10px 0px;
-    }
 
-    h1,
-    p {
-      mix-blend-mode: difference;
-      z-index: 100;
-    }
-
-    &:hover {
-      h1 {
-        border-bottom: 5px solid white;
-      }
-      p {
-        mix-blend-mode: normal;
-        background-color: #975bd3;
+      &:hover {
+        h1 {
+          border-bottom: 5px solid white;
+        }
+        p {
+          background-color: red;
+        }
       }
     }
   }
