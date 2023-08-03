@@ -41,6 +41,10 @@ body {
     @include breakpoint-mixin("laptop-wide") {
       font-size: 80px;
     }
+
+    @include breakpoint-mixin("desktop") {
+      font-size: 90px;
+    }
   }
 
   h2 {
