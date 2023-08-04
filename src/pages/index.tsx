@@ -69,11 +69,7 @@ const App = ({
           title={"og:description"}
           content="Somewhere in Manny with my headphones on. UOM Engineer, tap in for gems and vibes, sumn humble, sumn subtle. Ever so, ever so."
         />
-        <meta
-          name={"og:image"}
-          title={"og:image"}
-          content="../../public/icon.jpg"
-        />
+        <meta name={"og:image"} title={"og:image"} content="/icon.jpg" />
       </Head>
       <div className={styles.main}>
         <ProfileSection />
