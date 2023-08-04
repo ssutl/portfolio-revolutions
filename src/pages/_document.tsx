@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="ss.utl" content="A SSUTL PORTFOLIO." />
+        <meta name="ss.utl" content="A SSUTL PORTFOLIO ⚡" />
         <meta
           name="keywords"
           content="University of manchester, student, technology, mechatronics"
@@ -25,9 +25,9 @@ export default function Document() {
         />
 
         {/* <!-- Facebook Meta Tags --> */}
-        <meta property="og:url" content="https://kton.xyz/" />
+        <meta property="og:url" content="https://ssutl.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Highlight Manager" />
+        <meta property="og:title" content="A SSUTL PORTFOLIO ⚡" />
         <meta
           property="og:description"
           content="Somewhere in Manny with my headphones on. UOM Engineer, tap in for gems and vibes, sumn humble, sumn subtle. Ever so, ever so. HFWI ⚡"
@@ -38,7 +38,7 @@ export default function Document() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="ssutl.com" />
         <meta property="twitter:url" content="https://ssutl.com/" />
-        <meta name="twitter:title" content="A SSUTL PORTFOLIO" />
+        <meta name="twitter:title" content="A SSUTL PORTFOLIO ⚡" />
         <meta
           name="twitter:description"
           content="Somewhere in Manny with my headphones on. UOM Engineer, tap in for gems and vibes, sumn humble, sumn subtle. Ever so, ever so. HFWI ⚡"
