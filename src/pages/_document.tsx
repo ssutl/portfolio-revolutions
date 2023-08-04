@@ -11,7 +11,7 @@ export default function Document() {
           content="University of manchester, student, technology, mechatronics"
         />
 
-        <link rel="icon" href="/icon.png" />
+        <link rel="icon" href="/icon.jpg" />
         <meta
           name="viewport"
           content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover, shrink-to-fit=no"
@@ -51,7 +51,7 @@ export default function Document() {
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     --> */}
-        <link rel="apple-touch-icon" sizes="512x512" href="seo.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="seo.jpg" />
 
         {/* <!--
       Notice the use of %PUBLIC_URL% in the tags above.
