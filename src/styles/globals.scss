@@ -17,6 +17,7 @@ body {
   background-size: cover;
   background-position: 20% 60%;
   background-attachment: fixed;
+  //
 
   @include breakpoint-mixin("laptop-small") {
     background-repeat: repeat;
