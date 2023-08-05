@@ -25,7 +25,7 @@
     margin: 0px auto;
     padding: 100px 0px 0px 0px;
 
-    @include breakpoint-mixin("laptop-small") {
+    @include breakpoint-mixin("Laptop") {
       width: 60%;
     }
 
@@ -52,7 +52,7 @@
   }
 }
 
-@include breakpoint-mixin("laptop-small") {
+@include breakpoint-mixin("Laptop") {
   .blogPage::-webkit-scrollbar {
     height: 100%;
     background-color: rgb(45, 41, 41);

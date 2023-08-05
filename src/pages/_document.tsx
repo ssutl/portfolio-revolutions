@@ -49,7 +49,7 @@ export default function Document() {
 
         <!--
       manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      user's mobile device or Desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     --> */}
         <link rel="apple-touch-icon" sizes="512x512" href="seo.jpg" />
 

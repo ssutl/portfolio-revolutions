@@ -13,7 +13,7 @@
     line-height: 150%;
   }
 
-  @include breakpoint-mixin("laptop-small") {
+  @include breakpoint-mixin("Laptop") {
     padding: 20px 1%;
     text-align: justify;
   }

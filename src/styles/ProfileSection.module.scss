@@ -20,22 +20,21 @@
     cursor: pointer;
     left: 2%;
 
-    @include breakpoint-mixin("laptop-small") {
+    @include breakpoint-mixin("Laptop") {
       left: 1%;
     }
   }
 
   #profileSection__desc {
-    margin-left: 2%;
-    width: 80%;
+    width: 90%;
     line-height: 110%;
+    margin-left: 2%;
 
-    @include breakpoint-mixin("laptop-small") {
+    @include breakpoint-mixin("Laptop") {
       margin-left: 1%;
-      width: 50%;
     }
 
-    @include breakpoint-mixin("desktop") {
+    @include breakpoint-mixin("Desktop") {
       width: 45%;
     }
   }

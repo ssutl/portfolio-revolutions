@@ -8,7 +8,7 @@
   flex-direction: column;
   background-color: transparent;
 
-  @include breakpoint-mixin("laptop-small") {
+  @include breakpoint-mixin("Laptop") {
     padding: 100px 1% 50px 1%;
   }
 
@@ -25,7 +25,7 @@
     flex-direction: column;
     padding: 20px 0px;
 
-    @include breakpoint-mixin("laptop-small") {
+    @include breakpoint-mixin("Laptop") {
       padding: 10px 0px;
     }
 
@@ -44,7 +44,7 @@
         transition: transform 0.3s ease-in-out;
       }
 
-      @include breakpoint-mixin("laptop-small") {
+      @include breakpoint-mixin("Laptop") {
         &:hover {
           h1 {
             border-bottom: 5px solid white;
@@ -54,7 +54,7 @@
         }
       }
 
-      @include breakpoint-mixin("desktop") {
+      @include breakpoint-mixin("Desktop") {
         &:hover {
           h1 {
             font-size: 110px;
