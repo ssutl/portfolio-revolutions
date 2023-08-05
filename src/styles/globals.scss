@@ -41,7 +41,7 @@ body {
   h1 {
     margin: 0px;
     padding: 0px;
-    font-size: 65px;
+    font-size: 60px;
 
     @include breakpoint-mixin("Mobile_M") {
       font-size: 70px;
