@@ -5,6 +5,7 @@ import NotionService from "../../../services/notion-service";
 import { BlogPost } from "../../../@types/schema";
 import styles from "../../styles/BlogLandingPage.module.scss";
 import Sidebanner from "@/Components/SideBanner";
+import Head from "next/head";
 
 export interface githubProjectInterface {
   name: string;
@@ -33,10 +34,16 @@ const BlogLandingPage = ({
   notionPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className={styles.page}>
-      <Sidebanner />
-      <BlogSection notionPosts={notionPosts} />
-    </div>
+    <>
+      <Head>
+        <title>BLOG</title>
+        <meta name="ss.utl" content="SSUTl CAN BLOG 📜" />
+      </Head>
+      <div className={styles.page}>
+        <Sidebanner />
+        <BlogSection notionPosts={notionPosts} />
+      </div>
+    </>
   );
 };
 export default BlogLandingPage;
