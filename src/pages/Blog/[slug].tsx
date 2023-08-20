@@ -1,8 +1,6 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import NotionService from "../../../services/notion-service";
 import { BlogPost } from "../../../@types/schema";
-import { GetStaticProps } from "next";
 import styles from "../../styles/BlogPage.module.scss";
 import "../../../node_modules/@uiw/react-markdown-preview/esm/styles/markdown.css";
 import dynamic from "next/dynamic";
@@ -11,6 +9,7 @@ import { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
 import Sidebanner from "../../../src/Components/SideBanner";
 import convertDateFunc from "../../../src//Helpers/ConvertDate";
 import colorConvert from "@/Helpers/NotionColourConverter";
+import { GetServerSideProps } from "next";
 
 const MarkdownPreview = dynamic<MarkdownPreviewProps>(
   () =>
@@ -21,8 +20,7 @@ const MarkdownPreview = dynamic<MarkdownPreviewProps>(
 );
 
 const BlogPage = ({ markdown, post }: { markdown: any; post: BlogPost }) => {
-  console.log("post: ", post);
-  console.log("markdown: ", markdown);
+  console.log("post", post);
   if (!post) {
     return (
       <div>Look at this picture of me whilst you wait for the site to load</div>
@@ -43,13 +41,13 @@ const BlogPage = ({ markdown, post }: { markdown: any; post: BlogPost }) => {
           title={"og:description"}
           content={post.description}
         />
-        <meta name={"og:image"} title={"og:image"} content={post.cover} />
+        <meta name={"og:image"} title={"og:image"} content={post.cover.url} />
       </Head>
       <Sidebanner />
 
       <div className={styles.blogPage}>
         <div className={styles.imageBanner}>
-          <img src={post.cover} alt="blog post banner image" />
+          <img src={post.cover.url} alt="blog post banner image" />
         </div>
         <div className={styles.BlogSection}>
           <h1>{post.title}</h1>
@@ -82,7 +80,7 @@ const BlogPage = ({ markdown, post }: { markdown: any; post: BlogPost }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const notionService = new NotionService();
 
   // @ts-ignore
@@ -93,7 +91,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const markdown = p.markdown as unknown as { parent: string };
-  console.log("markdown: ", markdown);
 
   return {
     props: {
@@ -102,22 +99,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
-
-export async function getStaticPaths() {
-  const notionService = new NotionService();
-
-  const posts = await notionService.getPublishedBlogPosts();
-
-  // Because we are generating static paths, you will have to redeploy your site whenever
-  // you make a change in Notion.
-  const paths = posts.map((post) => {
-    return `/Blog/${post.slug}`;
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
 
 export default BlogPage;
