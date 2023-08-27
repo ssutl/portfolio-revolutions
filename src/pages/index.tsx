@@ -1,29 +1,17 @@
 import React from "react";
 import Sidebanner from "../../src/Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
-import ProjectSection from "../../src/Components/ProjectSection";
 import AboutMeSection from "../../src/Components/AboutMeSection";
 import ProfileSection from "../../src/Components/ProfileSection";
 import BlogSection from "../../src/Components/BlogSection";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import NotionService from "../../services/notion-service";
 import { BlogPost } from "../../@types/schema";
 import axios from "axios";
 import Head from "next/head";
 
-export interface githubProjectInterface {
-  name: string;
-  html_url: string;
-  language: string;
-  watchers: number;
-  created_at: string;
-  updated_at: string;
-  description: string;
-}
-
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
   notionPosts: BlogPost[];
-  githubProjects: githubProjectInterface[];
 }> = async (context) => {
   const notionService = new NotionService();
   const notionPosts = await notionService.getPublishedBlogPosts();
@@ -36,20 +24,16 @@ export const getStaticProps: GetStaticProps<{
     },
   });
 
-  const githubProjects = projects.data;
-
   return {
     props: {
       notionPosts,
-      githubProjects,
     },
   };
 };
 
 const App = ({
   notionPosts,
-  githubProjects,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>
       <Head>
@@ -59,7 +43,6 @@ const App = ({
         <ProfileSection />
         <AboutMeSection />
         <BlogSection notionPosts={notionPosts} />
-        <ProjectSection githubProjects={githubProjects} />
         <Sidebanner />
       </div>
     </>
