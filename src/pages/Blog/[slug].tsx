@@ -20,7 +20,6 @@ const MarkdownPreview = dynamic<MarkdownPreviewProps>(
 );
 
 const BlogPage = ({ markdown, post }: { markdown: any; post: BlogPost }) => {
-  console.log("post", post);
   if (!post) {
     return (
       <div>Look at this picture of me whilst you wait for the site to load</div>
@@ -66,14 +65,18 @@ const BlogPage = ({ markdown, post }: { markdown: any; post: BlogPost }) => {
               );
             })}
           </div>
-          <MarkdownPreview
-            source={markdown}
-            wrapperElement={{
-              "data-color-mode": "dark",
-            }}
-            style={{ backgroundColor: "transparent" }}
-            disableCopy={true}
-          />
+          <div className={styles.markdown}>
+            <MarkdownPreview
+              source={markdown}
+              wrapperElement={{
+                "data-color-mode": "dark",
+              }}
+              style={{
+                backgroundColor: "transparent",
+              }}
+              disableCopy={true}
+            />
+          </div>
         </div>
       </div>
     </>
