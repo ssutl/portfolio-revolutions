@@ -48,6 +48,13 @@
         cursor: pointer;
       }
     }
+
+    .markdown {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }
 
