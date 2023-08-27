@@ -9,7 +9,7 @@
   background-color: transparent;
 
   @include breakpoint-mixin("Laptop") {
-    padding: 100px 1% 0px 1%;
+    padding: 100px 1% 100px 1%;
   }
   // background-color: orange;
 
