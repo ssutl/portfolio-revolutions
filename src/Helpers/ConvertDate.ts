@@ -25,7 +25,7 @@ const convertDateFunc = (date: string) => {
 
   return `${
     isWithinLast7Days ? `RECENTLY DROPPED` : "DROPPED ON"
-  } ${formattedDate}  @${formattedTime}`;
+  } ${formattedDate}`;
 };
 
 export default convertDateFunc;
