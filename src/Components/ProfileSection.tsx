@@ -6,7 +6,7 @@ const ProfileSection = () => {
     <div className={styles.profileSection}>
       <p id={styles.profileSection__name}>ss.utl</p>
       <h1 id={styles.profileSection__desc}>
-        Campbell Shay, city stroller, vibe controller. Headphones on.
+        Campbell Shay, city stroller, macro controller. Headphones on.
       </h1>
     </div>
   );
