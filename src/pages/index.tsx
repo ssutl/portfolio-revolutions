@@ -64,7 +64,7 @@ const App = ({
             </div>
           ) : (
             <div className={styles.main__content__store}>
-              <h1>Store</h1>
+              <h1>Still creating.....</h1>
             </div>
           )}
         </div>
