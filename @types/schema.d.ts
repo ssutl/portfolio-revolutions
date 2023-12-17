@@ -9,12 +9,13 @@ export type Tag = {
 
 export type BlogPost = {
   id: string;
-  slug: string;
-  cover: { url: string };
+  cover: string;
   title: string;
-  tags: Tag[];
+  tech: string[]; // Add this line
+  tags: string[];
   description: string;
   date: string;
+  slug: string;
 };
 
 export type PostPage = {

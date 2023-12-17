@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebanner from "../../src/Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
-import AboutMeSection from "../../src/Components/AboutMeSection";
-import ProfileSection from "../../src/Components/ProfileSection";
-import BlogSection from "../../src/Components/BlogSection";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import NotionService from "../../services/notion-service";
 import { BlogPost } from "../../@types/schema";
 import axios from "axios";
 import Head from "next/head";
+import Header from "../Components/Header";
+import About3 from "@/Components/About3";
+import Technogrophy1 from "@/Components/Technogrophy1";
+import Technogrophy2 from "@/Components/Technogrophy2";
 
 export const getServerSideProps: GetServerSideProps<{
   notionPosts: BlogPost[];
@@ -34,15 +35,39 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
+  const [currentProject, setCurrentProject] = useState(0);
+
+  const changeCurrentProject = (i: number) => {
+    if (notionPosts[i]) {
+      setCurrentProject(i);
+    }
+  };
+
   return (
     <>
       <Head>
         <title>ss.utl</title>
       </Head>
       <div className={styles.main}>
-        <ProfileSection />
-        <AboutMeSection />
-        <BlogSection notionPosts={notionPosts} />
+        <div className={styles.main__content}>
+          <Header location={location} setLocation={setLocation} />
+          {location === "Portfolio" ? (
+            <div className={styles.main__content__portfolio}>
+              <Technogrophy1 project={notionPosts[currentProject]} />
+              <Technogrophy2 project={notionPosts[currentProject]} />
+              <About3
+                projects={notionPosts}
+                changeCurrentProject={changeCurrentProject}
+                currentProject={currentProject}
+              />
+            </div>
+          ) : (
+            <div className={styles.main__content__store}>
+              <h1>Store</h1>
+            </div>
+          )}
+        </div>
         <Sidebanner />
       </div>
     </>

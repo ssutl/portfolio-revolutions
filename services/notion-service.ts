@@ -93,10 +93,18 @@ export default class NotionService {
         cover = "";
     }
 
+    const title = page.properties.Name.title
+      .map((block: any) => block.plain_text)
+      .join(" ");
+    const tech = page.properties.Tech.multi_select.map(
+      (tech: any) => tech.name
+    ); // Add this line
+
     return {
       id: page.id,
       cover: cover,
-      title: page.properties.Name.title[0].plain_text,
+      title: title,
+      tech: tech,
       tags: page.properties.Tags.multi_select,
       description: page.properties.Description.rich_text[0].plain_text,
       date: page.properties.Date.date.start,

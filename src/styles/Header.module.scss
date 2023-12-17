@@ -1,0 +1,39 @@
+@import "./Breakpoints.scss";
+
+.Header {
+  height: 25dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+  margin-bottom: 10px;
+
+  .Header__name {
+    height: 20dvh;
+    width: 100%;
+    border-top: 20px solid #ed944d;
+    box-sizing: border-box;
+  }
+
+  .Header__navigation {
+    height: 5dvh;
+    width: 100%;
+    display: flex;
+
+    .Header__navigation__buttton {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 3px 15px 0px 15px;
+      box-sizing: border-box;
+    }
+
+    .active {
+      padding-top: 0px;
+      border-top: 3px solid #ed944d;
+    }
+  }
+}
