@@ -17,14 +17,6 @@ export const getServerSideProps: GetServerSideProps<{
   const notionService = new NotionService();
   const notionPosts = await notionService.getPublishedBlogPosts();
 
-  const projects = await axios({
-    method: "GET",
-    url: " https://api.github.com/users/ssutl/repos",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
   return {
     props: {
       notionPosts,
