@@ -11,6 +11,24 @@ interface Technogrophy2Props {
 }
 
 const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
+  const shareUrl = `https://ssutl.com/${project.slug}`; // Replace with your actual URL pattern
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: project.title,
+          text: project.description,
+          url: shareUrl,
+        });
+      } catch (error) {
+        console.error("Something went wrong sharing the blog post", error);
+      }
+    } else {
+      console.log("Web Share API is not supported in your browser");
+    }
+  };
+
   return (
     <>
       <Head>
@@ -36,7 +54,7 @@ const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
         <div className={styles.Technogrophy2__project__image}>
           <img src={project.cover.url} alt="project image" />
           <div className={styles.Technogrophy2__project__metashare}>
-            <span>
+            <span onClick={() => handleShare()}>
               <IosShareIcon className={styles.icons} />
               <p>Share</p>
             </span>

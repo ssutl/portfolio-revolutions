@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Sidebanner from "../../src/Components/SideBanner";
+import React, { useState, useEffect } from "react";
+import Sidebanner from "../Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import NotionService from "../../services/notion-service";
@@ -10,6 +10,7 @@ import Header from "../Components/Header";
 import About3 from "@/Components/About3";
 import Technogrophy1 from "@/Components/Technogrophy1";
 import Technogrophy2 from "@/Components/Technogrophy2";
+import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps<{
   notionPosts: BlogPost[];
@@ -27,8 +28,20 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const router = useRouter();
+  const { index } = router.query;
   const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
   const [currentProject, setCurrentProject] = useState(0);
+
+  useEffect(() => {
+    const slug = index; // Get the slug from the URL
+    if (slug) {
+      const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
+      if (index !== -1) {
+        setCurrentProject(index); // Set current project to that index
+      }
+    }
+  }, [router.query.slug, notionPosts]);
 
   const changeCurrentProject = (i: number) => {
     if (notionPosts[i]) {
