@@ -1,11 +1,5 @@
 @import "./Breakpoints.scss";
 
-html,
-body {
-  width: auto !important;
-  overflow-x: hidden !important;
-}
-
 body {
   margin: 0;
   padding: 0px;
@@ -13,6 +7,7 @@ body {
   font-family: "primaryFont";
   background-color: black;
   color: rgb(207, 206, 206);
+  overflow-x: hidden; // prevent horizontal scrolling
 
   h1,
   h2,
@@ -24,58 +19,6 @@ body {
     margin: 0px;
     padding: 0px;
   }
-
-  // p {
-  //   margin: 0px;
-  //   padding: 0px;
-  //   font-size: 20px;
-
-  //   @include breakpoint-mixin("Laptop") {
-  //     font-size: 22px;
-  //   }
-
-  //   @include breakpoint-mixin("Desktop") {
-  //     font-size: 25px;
-  //   }
-  // }
-
-  // h1 {
-  //   margin: 0px;
-  //   padding: 0px;
-  //   font-size: 60px;
-
-  //   @include breakpoint-mixin("Mobile_M") {
-  //     font-size: 70px;
-  //   }
-
-  //   @include breakpoint-mixin("Laptop") {
-  //     font-size: 80px;
-  //   }
-
-  //   @include breakpoint-mixin("Desktop") {
-  //     font-size: 100px;
-  //   }
-  // }
-
-  // h2 {
-  //   margin: 0px;
-  //   padding: 0px;
-  //   font-size: 40px;
-
-  //   @include breakpoint-mixin("Laptop") {
-  //     font-size: 60px;
-  //   }
-  // }
-
-  // h3 {
-  //   margin: 0px;
-  //   padding: 0px;
-  //   font-size: 30px;
-
-  //   @include breakpoint-mixin("laptop-wide") {
-  //     font-size: 45px;
-  //   }
-  // }
 }
 
 @font-face {

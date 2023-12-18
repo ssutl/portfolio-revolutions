@@ -35,11 +35,16 @@ const App = ({
 
   useEffect(() => {
     const slug = index; // Get the slug from the URL
-    if (slug) {
-      const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
-      if (index !== -1) {
-        setCurrentProject(index); // Set current project to that index
-      }
+
+    switch (slug?.toString().toLocaleLowerCase()) {
+      case "store":
+        setLocation("Store");
+        break;
+      default:
+        const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
+        if (index !== -1) {
+          setCurrentProject(index); // Set current project to that index
+        }
     }
   }, [router.query.slug, notionPosts]);
 
