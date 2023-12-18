@@ -8,16 +8,26 @@
   overflow-y: scroll;
 
   .main__content {
-    width: 70%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    @include breakpoint-mixin("Laptop") {
+      width: 70%;
+    }
 
     .main__content__portfolio {
       width: 100%;
       height: fit-content;
       display: flex;
       justify-content: space-between;
+      flex-direction: column-reverse;
+      padding-bottom: 50px;
+
+      @include breakpoint-mixin("Laptop") {
+        flex-direction: row;
+      }
     }
   }
 }

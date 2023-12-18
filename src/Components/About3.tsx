@@ -23,7 +23,12 @@ const About3: React.FC<About3Props> = ({
         <h3>SSUTL</h3>
         <p>BRUM, MANNY</p>
       </div>
-      <div className={styles.followContainer}>
+      <div
+        className={styles.followContainer}
+        onClick={() =>
+          window.open("https://www.instagram.com/ss.utl/", "_blank")
+        }
+      >
         <p>Follow</p>
       </div>
       <div className={styles.descriptionContainer}>

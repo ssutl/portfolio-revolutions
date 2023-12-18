@@ -33,6 +33,7 @@ const App = ({
   const changeCurrentProject = (i: number) => {
     if (notionPosts[i]) {
       setCurrentProject(i);
+      localStorage.setItem("slug", JSON.stringify(notionPosts[i].slug));
     }
   };
 
@@ -46,7 +47,11 @@ const App = ({
           <Header location={location} setLocation={setLocation} />
           {location === "Portfolio" ? (
             <div className={styles.main__content__portfolio}>
-              <Technogrophy1 project={notionPosts[currentProject]} />
+              <Technogrophy1
+                project={notionPosts[currentProject]}
+                projects={notionPosts}
+                changeCurrentProject={changeCurrentProject}
+              />
               <Technogrophy2 project={notionPosts[currentProject]} />
               <About3
                 projects={notionPosts}

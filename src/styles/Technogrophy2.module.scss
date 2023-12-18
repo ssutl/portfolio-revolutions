@@ -1,10 +1,14 @@
 @import "./Breakpoints.scss";
 
 .Technogrophy2 {
-  height: 100dvh;
   width: 40%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  @include breakpoint-mixin("Laptop") {
+    width: 40%;
+  }
 
   .Technogrophy2__project__image {
     width: 100%;

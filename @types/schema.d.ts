@@ -9,7 +9,9 @@ export type Tag = {
 
 export type BlogPost = {
   id: string;
-  cover: string;
+  cover: {
+    url: string;
+  };
   title: string;
   tech: string[]; // Add this line
   tags: string[];

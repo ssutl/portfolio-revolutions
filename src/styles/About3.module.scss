@@ -1,17 +1,24 @@
 @import "./Breakpoints.scss";
 
 .About3 {
-  height: 100dvh;
-  width: 12%;
-  display: flex;
-  flex-direction: column;
+  display: none;
+
+  @include breakpoint-mixin("Laptop") {
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+  }
 
   .imageContainer {
     width: 100%;
     position: relative;
     overflow: hidden;
-    height: 150px;
     margin-bottom: 15px;
+    height: 250px;
+
+    @include breakpoint-mixin("Laptop") {
+      height: 150px;
+    }
 
     img {
       width: 100%;
