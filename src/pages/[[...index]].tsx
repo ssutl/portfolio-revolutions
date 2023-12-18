@@ -56,6 +56,15 @@ const App = ({
     }
   };
 
+  if (
+    !notionPosts ||
+    notionPosts.length === 0 ||
+    currentProject === undefined ||
+    currentProject >= notionPosts.length
+  ) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Head>
