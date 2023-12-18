@@ -42,6 +42,7 @@ const App = ({
         break;
       default:
         const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
+        console.log("index", index);
         if (index !== -1) {
           setCurrentProject(index); // Set current project to that index
         }
@@ -58,7 +59,7 @@ const App = ({
   return (
     <>
       <Head>
-        <title>ss.utl</title>
+        <title>{location === "Store" ? "STORE" : null}</title>
       </Head>
       <div className={styles.main}>
         <div className={styles.main__content}>
