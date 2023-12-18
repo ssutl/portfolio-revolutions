@@ -1,7 +1,4 @@
-// next.config.js
-const removeImports = require("next-remove-imports")();
-module.exports = removeImports({
-  webpack(config, options) {
-    return config;
-  },
-});
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+module.exports = nextConfig;

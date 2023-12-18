@@ -33,21 +33,21 @@ const App = ({
   const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
   const [currentProject, setCurrentProject] = useState(0);
 
-  // useEffect(() => {
-  //   const slug = index; // Get the slug from the URL
+  useEffect(() => {
+    const slug = index; // Get the slug from the URL
 
-  //   switch (slug?.toString().toLocaleLowerCase()) {
-  //     case "store":
-  //       setLocation("Store");
-  //       break;
-  //     default:
-  //       const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
-  //       console.log("index", index);
-  //       if (index !== -1) {
-  //         setCurrentProject(index); // Set current project to that index
-  //       }
-  //   }
-  // }, [router.query.slug, notionPosts]);
+    switch (slug?.toString().toLocaleLowerCase()) {
+      case "store":
+        setLocation("Store");
+        break;
+      default:
+        const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
+        console.log("index", index);
+        if (index !== -1) {
+          setCurrentProject(index); // Set current project to that index
+        }
+    }
+  }, [router.query.slug, notionPosts]);
 
   const changeCurrentProject = (i: number) => {
     if (notionPosts[i]) {
