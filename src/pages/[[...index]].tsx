@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebanner from "../../src/Components/SideBanner";
+import Sidebanner from "../Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
-import AboutMeSection from "../../src/Components/AboutMeSection";
-import ProfileSection from "../../src/Components/ProfileSection";
-import BlogSection from "../../src/Components/BlogSection";
+import AboutMeSection from "../Components/AboutMeSection";
+import ProfileSection from "../Components/ProfileSection";
+import BlogSection from "../Components/BlogSection";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import NotionService from "../../services/notion-service";
 import { BlogPost } from "../../@types/schema";
