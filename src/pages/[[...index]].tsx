@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   const notionService = new NotionService();
   const notionPosts = await notionService.getPublishedBlogPosts();
-  console.log("notionPosts", notionPosts);
 
   return {
     props: {
@@ -29,7 +28,6 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log("notionPosts", notionPosts);
   const router = useRouter();
   const { index } = router.query;
   const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
