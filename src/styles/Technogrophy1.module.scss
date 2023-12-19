@@ -3,10 +3,12 @@
 .Technogrophy1 {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
+  margin: 0px auto;
 
   @include breakpoint-mixin("Laptop") {
     width: 40%;
+    margin: 0px;
   }
 
   .Technogrophy1__title {
@@ -22,6 +24,40 @@
     margin-bottom: 35px;
   }
 
+  .Technogrophy1__eyebanner {
+    border: 5px solid rgb(45, 44, 44);
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: auto;
+    height: 100px;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 0;
+
+    img {
+      filter: grayscale(100%);
+      width: 140%;
+      height: 100%;
+      margin-left: -20%;
+      position: relative;
+      object-fit: cover;
+    }
+  }
+
+  .Technogrophy1__eyebanner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/lines.png") repeat top left;
+    background-size: 55%;
+    opacity: 0.8;
+    z-index: 1;
+    filter: invert(1);
+  }
   .Technogrophy1__viewall {
     width: 100%;
 
@@ -34,6 +70,10 @@
       grid-template-columns: repeat(4, 1fr);
 
       @include breakpoint-mixin("Laptop") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include breakpoint-mixin("Desktop") {
         grid-template-columns: repeat(5, 1fr);
       }
 

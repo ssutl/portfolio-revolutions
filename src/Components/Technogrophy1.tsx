@@ -22,6 +22,9 @@ const Technogrophy1: React.FC<Technogrophy1Props> = ({
       <div className={styles.Technogrophy1__description}>
         <h2>{project.description}</h2>
       </div>
+      <div className={styles.Technogrophy1__eyebanner}>
+        <img src="/Eyes.jpeg" alt="eyebanner" />
+      </div>
       <div className={styles.Technogrophy1__viewall}>
         <p>Full Technogrophy</p>
         <div className={styles.Technogrophy1__projects__containter}>

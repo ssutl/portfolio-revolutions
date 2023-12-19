@@ -14,9 +14,13 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 15px;
-    height: 250px;
+    height: 200px;
 
     @include breakpoint-mixin("Laptop") {
+      height: 120px;
+    }
+
+    @include breakpoint-mixin("Desktop") {
       height: 150px;
     }
 
