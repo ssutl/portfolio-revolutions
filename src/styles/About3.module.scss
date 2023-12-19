@@ -49,6 +49,7 @@
 
   .descriptionContainer {
     width: 100%;
+    margin-bottom: 30px;
     h3 {
       margin-bottom: 20px;
     }
@@ -66,7 +67,7 @@
     //Fit background image to container
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 10%;
+    background-position: 15%;
     row-gap: 30px;
 
     .projectTitle {
