@@ -16,10 +16,12 @@
     img {
       width: 100%;
       object-fit: cover;
-      border: 0.25px solid rgba(128, 128, 128, 0.554);
       height: 400px;
+      border-top: 0.25px solid rgba(128, 128, 128, 0.554);
+      border-bottom: 0.25px solid rgba(128, 128, 128, 0.554);
 
       @include breakpoint-mixin("Laptop") {
+        border: 0.25px solid rgba(128, 128, 128, 0.554);
         height: 350px;
       }
 
