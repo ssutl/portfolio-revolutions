@@ -17,6 +17,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   const notionService = new NotionService();
   const notionPosts = await notionService.getPublishedBlogPosts();
+  console.log("notionPosts", notionPosts);
 
   return {
     props: {
@@ -28,6 +29,7 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log("notionPosts", notionPosts);
   const router = useRouter();
   const { index } = router.query;
   const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
@@ -35,6 +37,8 @@ const App = ({
 
   useEffect(() => {
     const slug = index; // Get the slug from the URL
+
+    if (!router.isReady) return;
 
     switch (slug?.toString().toLocaleLowerCase()) {
       case "store":
@@ -47,7 +51,7 @@ const App = ({
           setCurrentProject(index); // Set current project to that index
         }
     }
-  }, [router.query.slug, notionPosts]);
+  }, [router.isReady]);
 
   const changeCurrentProject = (i: number) => {
     if (notionPosts[i]) {
@@ -55,15 +59,6 @@ const App = ({
       localStorage.setItem("slug", JSON.stringify(notionPosts[i].slug));
     }
   };
-
-  if (
-    !notionPosts ||
-    notionPosts.length === 0 ||
-    currentProject === undefined ||
-    currentProject >= notionPosts.length
-  ) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
