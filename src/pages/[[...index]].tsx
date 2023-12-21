@@ -30,7 +30,9 @@ const App = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
   const { index } = router.query;
-  const [location, setLocation] = useState<"Portfolio" | "Store">("Portfolio");
+  const [location, setLocation] = useState<"Portfolio" | "About" | "Store">(
+    "Portfolio"
+  );
   const [currentProject, setCurrentProject] = useState(0);
 
   useEffect(() => {
@@ -61,7 +63,13 @@ const App = ({
   return (
     <>
       <Head>
-        <title>{location === "Store" ? "STORE" : null}</title>
+        <title>
+          {location === "Store"
+            ? "STORE"
+            : location === "About"
+            ? "About SSUTL"
+            : null}
+        </title>
       </Head>
       <div className={styles.main}>
         <div className={styles.main__content}>
@@ -79,6 +87,10 @@ const App = ({
                 changeCurrentProject={changeCurrentProject}
                 currentProject={currentProject}
               />
+            </div>
+          ) : location === "About" ? (
+            <div className={styles.main__content__about}>
+              <h1>SSUTL is everything self proclaimed.</h1>
             </div>
           ) : (
             <div className={styles.main__content__store}>

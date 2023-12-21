@@ -1,8 +1,10 @@
 import styles from "../styles/Header.module.scss";
 
 interface HeaderProps {
-  location: "Portfolio" | "Store";
-  setLocation: React.Dispatch<React.SetStateAction<"Portfolio" | "Store">>;
+  location: "Portfolio" | "About" | "Store";
+  setLocation: React.Dispatch<
+    React.SetStateAction<"Portfolio" | "About" | "Store">
+  >;
 }
 
 const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
@@ -18,6 +20,14 @@ const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
           }`}
         >
           <p>PORTFOLIO</p>
+        </div>
+        <div
+          onClick={() => setLocation("About")}
+          className={`${styles.Header__navigation__buttton} ${
+            location === "About" ? styles.active : ""
+          }`}
+        >
+          <p>ABOUT</p>
         </div>
         <div
           onClick={() => setLocation("Store")}

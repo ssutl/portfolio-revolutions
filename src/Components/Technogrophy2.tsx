@@ -11,7 +11,9 @@ interface Technogrophy2Props {
 }
 
 const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
+  console.log("project", project);
   const shareUrl = `https://ssutl.com/${project.slug}`; // Replace with your actual URL pattern
+  const link = project.github.toLocaleLowerCase();
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -71,6 +73,17 @@ const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
         <div className={styles.Technogrophy2__project__metadata}>
           <span>
             <p>{project.date}</p>
+          </span>
+          <span>
+            <a href={link}>
+              {link.includes("github")
+                ? "Github"
+                : link.includes("instagram")
+                ? "Instagram"
+                : link.includes("tiktok")
+                ? "Tiktok"
+                : "Website"}
+            </a>
           </span>
           {project.tech.map((technology, i) => {
             return (

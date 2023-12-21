@@ -83,6 +83,15 @@
       display: flex;
       margin-bottom: 15px;
       align-items: center;
+
+      a {
+        text-decoration: none;
+        color: #ed944d;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
     }
   }
 

@@ -18,6 +18,7 @@ export type BlogPost = {
   description: string;
   date: string;
   slug: string;
+  github: string;
 };
 
 export type PostPage = {

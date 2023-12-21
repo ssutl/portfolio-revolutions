@@ -105,6 +105,7 @@ export default class NotionService {
       cover: cover,
       title: title,
       tech: tech,
+      github: page.properties.Github.url,
       tags: page.properties.Tags.multi_select,
       description: page.properties.Description.rich_text[0].plain_text,
       date: page.properties.Date.date.start,
