@@ -6,11 +6,21 @@ import NotionService from "../../services/notion-service";
 import { BlogPostConMarkdown } from "../../@types/schema";
 import axios from "axios";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Header from "../Components/Header";
 import About3 from "@/Components/About3";
 import Technogrophy1 from "@/Components/Technogrophy1";
 import Technogrophy2 from "@/Components/Technogrophy2";
 import { useRouter } from "next/router";
+import { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
+
+const MarkdownPreview = dynamic<MarkdownPreviewProps>(
+  () =>
+    import("@uiw/react-markdown-preview").then((mod) => {
+      return mod.default;
+    }),
+  { ssr: false }
+);
 
 export const getServerSideProps: GetServerSideProps<{
   notionPosts: BlogPostConMarkdown[];

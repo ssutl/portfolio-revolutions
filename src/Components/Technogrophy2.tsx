@@ -2,9 +2,19 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Technogrophy2.module.scss";
 import { BlogPostConMarkdown } from "../../@types/schema";
 import IosShareIcon from "@mui/icons-material/IosShare";
+import dynamic from "next/dynamic";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import Head from "next/head";
+import { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
+
+const MarkdownPreview = dynamic<MarkdownPreviewProps>(
+  () =>
+    import("@uiw/react-markdown-preview").then((mod) => {
+      return mod.default;
+    }),
+  { ssr: false }
+);
 
 interface Technogrophy2Props {
   project: BlogPostConMarkdown;
@@ -98,6 +108,16 @@ const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
             );
           })}
         </div>
+        <MarkdownPreview
+          source={project.markdown}
+          wrapperElement={{
+            "data-color-mode": "dark",
+          }}
+          style={{
+            backgroundColor: "transparent",
+          }}
+          disableCopy={true}
+        />
       </div>
     </>
   );
