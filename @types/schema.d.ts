@@ -33,10 +33,10 @@ export type BlogPostConMarkdown = {
   date: string;
   slug: string;
   github: string;
-  markdown: MdBlock[];
+  markdown: string;
 };
 
 export type PostPage = {
   post: BlogPost;
-  markdown: MdStringObject;
+  markdown: { parent: string };
 };

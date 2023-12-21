@@ -28,6 +28,7 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log("notionPosts", notionPosts);
   const router = useRouter();
   const { index } = router.query;
   const [location, setLocation] = useState<"Portfolio" | "About" | "Store">(
