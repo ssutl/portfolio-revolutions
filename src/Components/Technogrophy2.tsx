@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import Head from "next/head";
+import "../../node_modules/@uiw/react-markdown-preview/esm/styles/markdown.css";
 import { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
 
 const MarkdownPreview = dynamic<MarkdownPreviewProps>(
