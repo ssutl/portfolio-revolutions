@@ -1,5 +1,9 @@
 import { Client } from "@notionhq/client";
-import { BlogPost, PostPage } from "../@types/schema";
+import {
+  BlogPostConMarkdown,
+  BlogPostSinMarkdown,
+  PostPage,
+} from "../@types/schema";
 import { NotionToMarkdown } from "notion-to-md";
 
 export default class NotionService {
@@ -13,7 +17,7 @@ export default class NotionService {
     this.n2m = new NotionToMarkdown({ notionClient: this.client });
   }
 
-  async getPublishedBlogPosts(): Promise<BlogPost[]> {
+  async getPublishedBlogPosts(): Promise<BlogPostConMarkdown[]> {
     const database = process.env.NEXT_PUBLIC_NOTION_BLOG_DATABASE_ID ?? "";
     // list blog posts
     const response = await this.client.databases.query({
@@ -32,9 +36,16 @@ export default class NotionService {
       ],
     });
 
-    return response.results.map((res) => {
-      return NotionService.pageToPostTransformer(res);
-    });
+    // Fetch the markdown for each post
+    const postsWithMarkdown = await Promise.all(
+      response.results.map(async (res) => {
+        const post = NotionService.pageToPostTransformer(res);
+        const markdown = await this.n2m.pageToMarkdown(res.id);
+        return { ...post, markdown };
+      })
+    );
+
+    return postsWithMarkdown;
   }
 
   async getSingleBlogPost(slug: string): Promise<PostPage> {
@@ -78,7 +89,7 @@ export default class NotionService {
     };
   }
 
-  private static pageToPostTransformer(page: any): BlogPost {
+  private static pageToPostTransformer(page: any): BlogPostSinMarkdown {
     let cover = page.cover;
 
     switch (cover.type) {

@@ -3,7 +3,7 @@ import Sidebanner from "../Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import NotionService from "../../services/notion-service";
-import { BlogPost } from "../../@types/schema";
+import { BlogPostConMarkdown } from "../../@types/schema";
 import axios from "axios";
 import Head from "next/head";
 import Header from "../Components/Header";
@@ -13,7 +13,7 @@ import Technogrophy2 from "@/Components/Technogrophy2";
 import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps<{
-  notionPosts: BlogPost[];
+  notionPosts: BlogPostConMarkdown[];
 }> = async (context) => {
   const notionService = new NotionService();
   const notionPosts = await notionService.getPublishedBlogPosts();

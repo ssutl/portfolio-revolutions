@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/About3.module.scss";
-import { BlogPost } from "../../@types/schema";
+import { BlogPostConMarkdown } from "../../@types/schema";
 
 interface About3Props {
-  projects: BlogPost[];
+  projects: BlogPostConMarkdown[];
   changeCurrentProject: (i: number) => void;
   currentProject: number;
 }

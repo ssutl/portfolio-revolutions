@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Technogrophy1.module.scss";
-import { BlogPost } from "../../@types/schema";
+import { BlogPostConMarkdown } from "../../@types/schema";
 
 interface Technogrophy1Props {
-  project: BlogPost;
-  projects: BlogPost[];
+  project: BlogPostConMarkdown;
+  projects: BlogPostConMarkdown[];
   changeCurrentProject: (i: number) => void;
 }
 

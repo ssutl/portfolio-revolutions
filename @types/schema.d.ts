@@ -1,5 +1,5 @@
 import { colorKeys } from "@/Helpers/NotionColourConverter";
-import { MdStringObject } from "notion-to-md/build/types";
+import { MdBlock, MdStringObject } from "notion-to-md/build/types";
 
 export type Tag = {
   color: colorKeys;
@@ -7,7 +7,7 @@ export type Tag = {
   name: string;
 };
 
-export type BlogPost = {
+export type BlogPostSinMarkdown = {
   id: string;
   cover: {
     url: string;
@@ -19,6 +19,21 @@ export type BlogPost = {
   date: string;
   slug: string;
   github: string;
+};
+
+export type BlogPostConMarkdown = {
+  id: string;
+  cover: {
+    url: string;
+  };
+  title: string;
+  tech: string[]; // Add this line
+  tags: string[];
+  description: string;
+  date: string;
+  slug: string;
+  github: string;
+  markdown: MdBlock[];
 };
 
 export type PostPage = {

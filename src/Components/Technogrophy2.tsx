@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Technogrophy2.module.scss";
-import { BlogPost } from "../../@types/schema";
+import { BlogPostConMarkdown } from "../../@types/schema";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import Head from "next/head";
 
 interface Technogrophy2Props {
-  project: BlogPost;
+  project: BlogPostConMarkdown;
 }
 
 const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
