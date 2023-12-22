@@ -2,20 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Technogrophy2.module.scss";
 import { BlogPostConMarkdown } from "../../@types/schema";
 import IosShareIcon from "@mui/icons-material/IosShare";
-import dynamic from "next/dynamic";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import Head from "next/head";
-import "../../node_modules/@uiw/react-markdown-preview/esm/styles/markdown.css";
-import { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
-
-const MarkdownPreview = dynamic<MarkdownPreviewProps>(
-  () =>
-    import("@uiw/react-markdown-preview").then((mod) => {
-      return mod.default;
-    }),
-  { ssr: false }
-);
 
 interface Technogrophy2Props {
   project: BlogPostConMarkdown;
@@ -65,7 +54,22 @@ const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
       </Head>
       <div className={styles.Technogrophy2}>
         <div className={styles.Technogrophy2__project__image}>
-          <img src={project.cover.url} alt="project image" />
+          {/* <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/ZRxdZbUYOjI?si=1MWLDyjYSGXLKz2I"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe> */}
+          <img
+            src={project.cover.url}
+            alt="project image"
+            onClick={() => {
+              window.open(project.github, "_blank");
+            }}
+          />
           <div className={styles.Technogrophy2__project__metashare}>
             <span onClick={() => handleShare()}>
               <IosShareIcon className={styles.icons} />
@@ -109,16 +113,6 @@ const Technogrophy2: React.FC<Technogrophy2Props> = ({ project }) => {
             );
           })}
         </div>
-        <MarkdownPreview
-          source={project.markdown}
-          wrapperElement={{
-            "data-color-mode": "dark",
-          }}
-          style={{
-            backgroundColor: "transparent",
-          }}
-          disableCopy={true}
-        />
       </div>
     </>
   );

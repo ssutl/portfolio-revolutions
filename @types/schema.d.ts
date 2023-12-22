@@ -19,6 +19,7 @@ export type BlogPostSinMarkdown = {
   date: string;
   slug: string;
   github: string;
+  video: string;
 };
 
 export type BlogPostConMarkdown = {
@@ -34,6 +35,7 @@ export type BlogPostConMarkdown = {
   slug: string;
   github: string;
   markdown: string;
+  video: string;
 };
 
 export type PostPage = {

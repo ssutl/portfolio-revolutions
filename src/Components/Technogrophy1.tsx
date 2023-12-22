@@ -20,7 +20,12 @@ const Technogrophy1: React.FC<Technogrophy1Props> = ({
         <p>By SSUTL</p>
       </div>
       <div className={styles.Technogrophy1__description}>
-        <h2>{project.description}</h2>
+        {project.description.split("\n").map((line, i) => (
+          <>
+            <p key={i}>{line}</p>
+            <br />
+          </>
+        ))}
       </div>
       <div className={styles.Technogrophy1__eyebanner}>
         <img src="/Eyes.jpeg" alt="eyebanner" />

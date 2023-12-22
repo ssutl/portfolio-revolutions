@@ -104,6 +104,11 @@ export default class NotionService {
     const title = page.properties.Name.title
       .map((block: any) => block.plain_text)
       .join(" ");
+
+    const description = page.properties.Description.rich_text
+      .map((block: any) => block.plain_text)
+      .join(" ");
+
     const tech = page.properties.Tech.multi_select.map(
       (tech: any) => tech.name
     ); // Add this line
@@ -115,9 +120,10 @@ export default class NotionService {
       tech: tech,
       github: page.properties.Github.url,
       tags: page.properties.Tags.multi_select,
-      description: page.properties.Description.rich_text[0].plain_text,
+      description: description,
       date: page.properties.Date.date.start,
       slug: page.properties.Slug.formula.string,
+      video: page.properties.Video.url,
     };
   }
 }
