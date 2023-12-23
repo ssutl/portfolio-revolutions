@@ -1,7 +1,6 @@
 @import "./Breakpoints.scss";
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 .Header {
-  height: 25dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@
   margin-bottom: 10px;
 
   .Header__name {
-    height: 20dvh;
+    height: 25dvh;
     width: 100%;
     border-top: 20px solid $mainColor;
     box-sizing: border-box;
@@ -18,12 +17,33 @@
     justify-content: center;
     align-items: center;
     // font-family: "Permanent Marker", cursive;
+    font-size: 45px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
 
-    font-size: 60px;
+    @include breakpoint-mixin("Laptop") {
+      font-size: 60px;
+      height: 20dvh;
+    }
 
     span {
       color: $mainColor;
     }
+  }
+
+  .Header__name:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/lines.png") repeat top left;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: 1;
+    filter: invert(1);
   }
 
   .Header__navigation {

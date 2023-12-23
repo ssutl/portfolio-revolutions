@@ -11,7 +11,8 @@ $breakpoints: (
 );
 
 //Dark Theme
-$mainColor: #b1825b;
+$mainColor: #b16f5b;
+$mainColor: #f66336;
 
 @mixin breakpoint-mixin($width, $type: min) {
   @if map_has_key($breakpoints, $width) {
