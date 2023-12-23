@@ -24,6 +24,7 @@
       @include breakpoint-mixin("Laptop") {
         border: 0.25px solid rgba(128, 128, 128, 0.554);
         height: 350px;
+        // object-position: left center;
       }
 
       @include breakpoint-mixin("Desktop") {
@@ -87,7 +88,7 @@
 
       a {
         text-decoration: none;
-        color: #ed944d;
+        color: $mainColor;
 
         &:hover {
           opacity: 0.6;

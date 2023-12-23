@@ -11,7 +11,11 @@ const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
   //Quick lil profile section, just a name and a description, nothing too fancy
   return (
     <div className={styles.Header}>
-      <div className={styles.Header__name}></div>
+      <div className={styles.Header__name}>
+        <p>
+          HUMBLY S<span>U</span>B<span>TL</span>Y
+        </p>
+      </div>
       <div className={styles.Header__navigation}>
         <div
           onClick={() => setLocation("Portfolio")}

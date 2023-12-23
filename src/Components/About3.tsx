@@ -38,7 +38,7 @@ const About3: React.FC<About3Props> = ({
           accept truth.
         </p>
       </div>
-      <div className={styles.technogrophyCard}>
+      {/* <div className={styles.technogrophyCard}>
         {projects.map((project, i) => {
           return (
             <div
@@ -53,7 +53,7 @@ const About3: React.FC<About3Props> = ({
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

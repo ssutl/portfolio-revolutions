@@ -1,4 +1,5 @@
 @import "./Breakpoints.scss";
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&family=Barlow:wght@300&display=swap");
 
 body,
 html {
@@ -9,11 +10,15 @@ body {
   margin: 0;
   padding: 0px;
   position: relative; // set the position to relative to allow for scrolling
-  font-family: "primaryFont";
+  font-family: "SecondaryFont";
+  font-family: "Barlow", sans-serif;
+  // font-family: "Barlow Semi Condensed", sans-serif;
+
   background-color: black;
   color: rgb(207, 206, 206);
   overflow-x: hidden; // prevent horizontal scrolling
   background-image: url("/background.jpg");
+  backdrop-filter: brightness(0.3);
   // filter: grayscale(100%);
 
   h1,
@@ -26,13 +31,4 @@ body {
     margin: 0px;
     padding: 0px;
   }
-}
-
-@font-face {
-  font-family: "PrimaryFont";
-  src: url("../../public/Resources/Inconsolata.otf") format("opentype");
-}
-@font-face {
-  font-family: "SecondaryFont";
-  src: url("../../public/Resources/SpaceMono-Regular.ttf") format("truetype");
 }
