@@ -18,7 +18,11 @@ body {
   color: rgb(207, 206, 206);
   overflow-x: hidden; // prevent horizontal scrolling
   background-image: url("/background.jpg");
-  backdrop-filter: brightness(0.3);
+  backdrop-filter: brightness(0.5);
+
+  @include breakpoint-mixin("Laptop") {
+    backdrop-filter: brightness(0.3);
+  }
   // filter: grayscale(100%);
 
   h1,
