@@ -21,10 +21,10 @@ const Technogrophy1: React.FC<Technogrophy1Props> = ({
       </div>
       <div className={styles.Technogrophy1__description}>
         {project.description.split("\n").map((line, i) => (
-          <>
-            <p key={i}>{line}</p>
+          <div key={i}>
+            <p>{line}</p>
             <br />
-          </>
+          </div>
         ))}
       </div>
       <div className={styles.Technogrophy1__eyebanner}>

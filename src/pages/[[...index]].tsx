@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Sidebanner from "../Components/SideBanner";
 import styles from "../../src/styles/Main.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
@@ -28,13 +28,13 @@ export const getServerSideProps: GetServerSideProps<{
 const App = ({
   notionPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log("notionPosts", notionPosts);
   const router = useRouter();
   const { index } = router.query;
   const [location, setLocation] = useState<"Portfolio" | "About" | "Store">(
     "Portfolio"
   );
   const [currentProject, setCurrentProject] = useState(0);
+  const mainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const slug = index; // Get the slug from the URL
@@ -47,7 +47,6 @@ const App = ({
         break;
       default:
         const index = notionPosts.findIndex((post) => post.slug === slug); // Find the index of the project with the same slug
-        console.log("index", index);
         if (index !== -1) {
           setCurrentProject(index); // Set current project to that index
         }
@@ -58,6 +57,9 @@ const App = ({
     if (notionPosts[i]) {
       setCurrentProject(i);
       localStorage.setItem("slug", JSON.stringify(notionPosts[i].slug));
+    }
+    if (window.innerWidth <= 768) {
+      mainRef.current?.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -72,7 +74,7 @@ const App = ({
             : null}
         </title>
       </Head>
-      <div className={styles.main}>
+      <div className={styles.main} ref={mainRef}>
         <div className={styles.main__content}>
           <Header location={location} setLocation={setLocation} />
           {location === "Portfolio" ? (
