@@ -34,8 +34,8 @@ const About3: React.FC<About3Props> = ({
       <div className={styles.descriptionContainer}>
         <h3>It’s a culture, a lifestyle, a way of living.</h3>
         <p>
-          You have to live it to understand, follow to lead, admit guilt to
-          accept truth.
+          City stroller, with the headphones on. You have to live it to
+          understand it. 600 pushups, plenty of reps.
         </p>
       </div>
       {/* <div className={styles.technogrophyCard}>
